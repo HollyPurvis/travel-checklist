@@ -8,29 +8,41 @@ function getTravelItems() {
     const value = localStorage.getItem("travelChecklist") || "[]";
 
     return JSON.parse(value);
-}
+};
 
 function setItems(travelItems) {
     const itemsJson = JSON.stringify(travelItems);
 
     localStorage.setItem("travelChecklist", itemsJson);
-}
+};
 
 function addItem() {
+    const id = new Date().getTime();
+
     travelItems.unshift({
+        id: id,
         description: "",
         packed: false
     });
 
     setItems(travelItems);
     refreshList();
-}
+};
+
+function removeItem(itemId) {
+    let index = travelItems.findIndex(item => item.id === itemId);
+    travelItems.splice(index, 1);
+    
+    console.log("remove Button Clicked");
+    setItems(travelItems);
+    refreshList();
+};
 
 function updateItem(item, key, value){
     item[key] = value;
     setItems(travelItems);
     refreshList();
-}
+};
 
 function refreshList() {
     //sort items
@@ -51,16 +63,23 @@ function refreshList() {
         const itemEl = ITEM_TEMPLATE.content.cloneNode(true);
         const descriptionInput = itemEl.querySelector(".item-description");
         const packedInput = itemEl.querySelector(".item-packed");
+        const deleteButton = itemEl.querySelector("#remove-item");
 
         descriptionInput.value = item.description;
         packedInput.checked = item.packed;
 
         descriptionInput.addEventListener("change", () => {
+            
             updateItem(item, "description", descriptionInput.value);
+            console.log(item.description);
         });
 
         packedInput.addEventListener("change", () => {
             updateItem(item, "packed", packedInput.checked);
+        });
+
+        deleteButton.addEventListener("click", () => {
+            removeItem(item.id);
         });
 
         ITEMS_CONTAINER.append(itemEl);
@@ -71,5 +90,6 @@ function refreshList() {
 ADD_BUTTON.addEventListener("click", () => {
     addItem();
 })
+
 
 refreshList();
