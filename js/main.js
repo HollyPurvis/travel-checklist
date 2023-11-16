@@ -71,7 +71,6 @@ function refreshList() {
         descriptionInput.addEventListener("change", () => {
             
             updateItem(item, "description", descriptionInput.value);
-            console.log(item.description);
         });
 
         packedInput.addEventListener("change", () => {
