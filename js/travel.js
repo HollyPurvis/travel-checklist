@@ -1,4 +1,8 @@
 const SEARCH_BUTTON = document.getElementById("search-country");
+const TODO_CONTAINER = document.getElementById("todos");
+const TODO_TEMPLATE = document.getElementById("toDoTemplate");
+
+let toDo = []
 
 //makes sure user types input
 function success() {
@@ -9,20 +13,25 @@ function success() {
         }
 }
 
+// get country from input field
 function getCountry() {
 
     const countryInput = document.querySelector("#destination-search").value;
 
-    console.log(countryInput) ;
+    return countryInput;
 }
 
+function empty(element) {
+    element.replaceChildren(); 
+ }
 
 const travelAPI = async () => {
 
-    const china = getCountry();
+    empty(TODO_CONTAINER);
+    const country = getCountry();
 
     const url = 'https://travel-info-api.p.rapidapi.com/country-activities?country=YoneLane';
-    const test = `https://travel-info-api.p.rapidapi.com/country-activities?country=${china}`;
+    const test = `https://travel-info-api.p.rapidapi.com/country-activities?country=${country}`;
     const options = {
         method: 'GET',
         headers: {
@@ -32,16 +41,35 @@ const travelAPI = async () => {
     };
     try {
         
-        const response = await fetch(url, options);
+        const response = await fetch(test, options);
         const result = await response.text();
         
 
-        console.log(JSON.parse(result));
+        toDo = JSON.parse(result);
+
     } catch (error) {
         alert("Please enter a valid country")
         console.error(error);
     }
+
+    // document.getElementById("activity1").innerHTML = toDo.data.activities[0].title;
+    console.log(toDo);
+
+    for(let i = 1; i < 5; i++){
+
+        let h2Title = document.createElement("H2");
+        h2Title.setAttribute("class", "title");
+        h2Title.innerHTML = toDo.data.activities[i].title
+        let activity = document.createElement("p");
+        activity.setAttribute("class", "activity");
+        activity.innerHTML = toDo.data.activities[i].activity
+        
+        TODO_CONTAINER.appendChild(h2Title);
+        TODO_CONTAINER.appendChild(activity);
+    }
+    
 }
+
 
 
 SEARCH_BUTTON.addEventListener("click", () => {

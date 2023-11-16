@@ -82,13 +82,17 @@ function refreshList() {
         });
 
         ITEMS_CONTAINER.append(itemEl);
+
+        
     }
 
 };
 
 ADD_BUTTON.addEventListener("click", () => {
     addItem();
+
 })
 
 
 refreshList();
+

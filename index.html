@@ -15,23 +15,25 @@
        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!--START CHECKLIST SECTION-->
                 <div class="heading">
                     <i class="fa-solid fa-plane-departure fa-6x m-2"></i>
                     <h1>Travel Checklist</h1>
                     <p class="m-0">Keep track of things to pack!</p> 
                 </div>
-                <div class="checklist">
-                    <div id="checklist-items"></div>
-                </div>
                 
+                <div class="checklist">
+                    <!--ITEMS Container-->
+                    <div id="checklist-items"></div>
+                    <!--ITEMS container-->
+                </div>
                 <div class="row justify-content-center align-items-center">
                     <div class="col-9">
                         <button style="width: 100%;" id="add-item">Add Item</button>
                     </div>
                     
                 </div>
-                
-
+                <!--itemTemplate-->
                 <template id="itemTemplate">
                     <div class="item">
                         <input type="checkbox" class="item-packed m-2 mx-auto">
@@ -39,19 +41,33 @@
                         <button id="remove-item">x</button>
                     </div>     
                 </template>
-
+                <!--itemTemplate-->
+    <!--END CHECKLIST SECTION-->
                 <div class="heading">
                     <i class="fa-solid fa-earth-americas fa-6x m-2"></i>
                     <h2>Discover</h2>
                     <p class="m-0">Learn more about the country you're visiting and things to do!</p> 
                 </div>
                 
-                //set up the div the api will show from
+                <div class="things-todo">
+                    <div id="todos">
+                        
+                    </div>
+                </div>
+
+                
                 
                 <div class="location">
                     <input type="text" style="width: 80%" onkeyup="success()"  id="destination-search" class="m-2 text-center" placeholder="Destination">
                 </div>
 
-                <button id="search-country" disabled>Add Item</button>
+                <button id="search-country" disabled>Find Things To Do</button>
+
+                <template id="toDoTemplate">
+                    <div class="toDo">
+                        <h2 class="activity"></h2>
+                        <p class="activity-description"></p>
+                    </div>     
+                </template>
 </body>
 </html>
