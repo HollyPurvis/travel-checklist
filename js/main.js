@@ -34,6 +34,17 @@ function updateItem(item, key, value){
 
 function refreshList() {
     //sort items
+
+    travelItems.sort((a, b) => {
+        if(a.packed){
+            return 1;
+        } else if (b.packed){
+            return -1;
+        }
+
+        return a.description < b.description ? -1 : 1;
+    });
+
     ITEMS_CONTAINER.innerHTML = "";
 
     for (const item of travelItems){
