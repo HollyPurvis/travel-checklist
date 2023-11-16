@@ -1,30 +1,12 @@
 body {
     text-align: center;
-    background-color: lightblue;
 }
 
-.bg-pink {
-    background-color: pink;
+.heading {
+    padding: 2rem;
+    background-color: rgb(215, 231, 250);
 }
 
 .checklist {
-    padding: 3rem;
-}
-
-.item-description {
-    width: 80%
-} 
-
-.test {
-    position: relative;
-    top: 50%;
-    bottom: 50%;
-    max-width: 100%
-}
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  min-height: 100vh;
+    background-color: antiquewhite;
 }
