@@ -48,7 +48,7 @@ const travelAPI = async () => {
         toDo = JSON.parse(result);
 
     } catch (error) {
-        alert("Please enter a valid country")
+        alert("Please enter a valid country or try another alias for that country")
         console.error(error);
     }
 
