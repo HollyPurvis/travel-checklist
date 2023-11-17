@@ -55,13 +55,13 @@ const travelAPI = async () => {
     // document.getElementById("activity1").innerHTML = toDo.data.activities[0].title;
     console.log(toDo);
 
-    for(let i = 1; i < 5; i++){
+    for(let i = 1; i < toDo.data.activities.length; i++){
 
         let h2Title = document.createElement("H2");
-        h2Title.setAttribute("class", "title");
+        h2Title.setAttribute("class", "title text-white");
         h2Title.innerHTML = toDo.data.activities[i].title
         let activity = document.createElement("p");
-        activity.setAttribute("class", "activity");
+        activity.setAttribute("class", "activity text-white");
         activity.innerHTML = toDo.data.activities[i].activity
         
         TODO_CONTAINER.appendChild(h2Title);

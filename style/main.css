@@ -1,12 +1,67 @@
 body {
-    text-align: center;
+    background-color: #003049;
+    font-family: 'Oswald', sans-serif;
+    /* background-image: url(../images/background-image.jpg); */
 }
 
 .heading {
-    padding: 2rem;
-    background-color: rgb(215, 231, 250);
+    padding: 1rem;
+    margin: 1.4rem;
+    color: #003049;
+    font-weight: bolder;
 }
 
-.checklist {
-    background-color: antiquewhite;
+.travelChecklist, .discover{
+    text-align: center;
+    border: solid 3px #e09f3e;
+    border-radius: 25px;
+    background-color: #457b9d;
+    margin: 3rem;
+    padding: 2rem;
+}
+
+.icon {
+    color: white;
+}
+
+.btn {
+    background-color: #8ecae6;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.item-packed {
+    width: 2em;
+    height: 2em;
+    border-radius: 1.25em !important;
+    margin: 1;
+}
+
+.item-packed:checked {
+   background-color:#e09f3e;
+   border-color: #e09f3e;
+}
+
+.remove-btn {
+    background-color: #1b4965;
+    width: 2em;
+    height: 2em;
+    text-align: center;
+    justify-content: center;
+    padding: 0;
+    color: #ced4da;
+}
+
+input[type="text" i] {
+    border-radius: 10px;
+    border: 1px;
+    padding: 8px;
+}
+
+.remove-btn:hover {
+    color: white;
+}
+
+#todos {
+    text-align: start !important;
 }
