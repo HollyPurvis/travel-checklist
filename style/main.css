@@ -28,7 +28,6 @@ body {
     background-color: #8ecae6;
     font-size: 20px;
     font-weight: bold;
-    margin: 1rem;
 }
 
 .item-packed {
@@ -67,8 +66,6 @@ input[type="text" i] {
     text-align: start !important;
 }
 
-@media screen and (min-width: 700px) {
-    .item-description {
-        width: 75%;
-    }
-  }
+#add-item {
+    width: 100%;
+}
