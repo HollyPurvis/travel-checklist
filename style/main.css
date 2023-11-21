@@ -69,3 +69,7 @@ input[type="text" i] {
 #add-item {
     width: 100%;
 }
+
+.item-description {
+    width: 70%;
+}
