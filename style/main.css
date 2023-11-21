@@ -66,3 +66,9 @@ input[type="text" i] {
 #todos {
     text-align: start !important;
 }
+
+@media screen and (min-width: 700px) {
+    .item-description {
+        width: 75%;
+    }
+  }
